@@ -57,7 +57,7 @@ A cutting-edge frontend interface for detecting AI-generated deepfake media, fea
 ### Installation
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/deepfake-detector-dashboard.git
+git clone https://github.com/AyushTechie-7/deepfake-detector-dashboard.git
 
 # Navigate to project directory
 cd deepfake-detector-dashboard
