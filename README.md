@@ -43,7 +43,9 @@ A cutting-edge frontend interface for detecting AI-generated deepfake media, fea
 |---------|---------|
 | **Main Dashboard** | ![Main View](https://github.com/user-attachments/assets/97751c66-c127-4982-8fa8-d4512f101cc6)|
 | **File Upload** | ![Upload](https://github.com/user-attachments/assets/96cc1ae3-5f29-4389-9421-c5a9589166a2)|
-| **Analysis** | ![Analysis]![image](https://github.com/user-attachments/assets/fe45d35f-b205-4af7-ab51-b295645d2372)|
+| **Analysis** | ![Analysis](https://github.com/user-attachments/assets/fe45d35f-b205-4af7-ab51-b295645d2372)|
+| **Result** | ![Result](https://github.com/user-attachments/assets/6cecac61-ba2f-448a-8af4-e039ecfdd21c)|
+
 
 
 ## 🚀 Getting Started
