@@ -61,4 +61,4 @@ git clone https://github.com/yourusername/deepfake-detector-dashboard.git
 cd deepfake-detector-dashboard
 
 # Launch in default browser (no build required)
-open index.html
+open html2.html
