@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detector - Expose the Fake</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:wght@400;700&family=Orbitron:wght@400;700&family=Rajdhani:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #06090e;
+            color: #c9d1d9;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+            overflow: hidden;
+        } */
+
+        /* canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        } */
+
+        h1 {
+            font-family: 'Audiowide', sans-serif;
+            font-size: 4rem;
+            font-weight: bold;
+            color: #58a6ff;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(45, 125, 217, 0.8);
+        }
+
+        h2 {font-family: 'Bebas Neue' ,sans-serif;
+            font-size: 3rem;
+            font-weight: bold;
+            color: #58a6ff;
+            text-transform: uppercase;
+            text-shadow: 0 0 15px rgba(5, 139, 242, 0.8);
+            animation: slowZoomEffect 6s infinite ease-in-out;
+        }
+        h3 { font-family: 'Big Shoulders Stencil' , sans-serif;
+            font-size: 10rem;
+            font-weight: bold;
+            color: #58a6ff;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(88, 166, 255, 0.8);
+        }
+
+        .features h3 {
+            width: 100%;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffcc00;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }   
+
+        @keyframes slowZoomEffect {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px 20px;
+        }
+
+        .feature-card {
+    background-color: #161b22;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform, box-shadow;
+    position: relative;
+    cursor: pointer; /* Ensures it’s interactive */
+}
+
+.feature-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 0px 20px rgba(88, 166, 255, 0.9);
+}
+
+.feature-card h4 {
+    font-family: 'Big Shoulders Stencil', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    color: #58a6ff;
+    transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.feature-card:hover h4 {
+    color: #ffcc00;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
+}
+
+
+        .footer {
+            padding: 20px;
+            font-size: 0.9em;
+            color: #8b949e;
+        }
+        #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+        }
+        /* New Button Styles */
+        .cssbuttons-io {
+            position: relative;
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 17px;
+            border-radius: 0.8em;
+            cursor: pointer;
+            border: none;
+            background: linear-gradient(to right, #0887e8, #5ce1e6);
+            color: ghostwhite;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .cssbuttons-io span {
+            position: relative;
+            z-index: 10;
+            transition: color 0.4s;
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8em 0.9em 0.8em 1.02em;
+        }
+
+        .cssbuttons-io::before {
+            content: "";
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: -10%;
+            width: 120%;
+            height: 100%;
+            transform: skew(30deg);
+            transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+        }
+
+        .cssbuttons-io:hover::before {
+            transform: translate3d(100%, 0, 0);
+        }
+
+        .cssbuttons-io:active {
+            transform: scale(0.95);
+        }
+        .cssbuttons-io span svg {
+            transition: transform 0.3s ease;
+        }
+
+        .cssbuttons-io:hover span svg {
+            transform: translateX(5px);
+        }
+
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="main-content">
+        <h1>Deepfake Detector</h1>
+        <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Bebas+Neue&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <h2>Expose the Fake</h2>
+        <p>Harness the power of advanced AI to detect manipulated videos and protect against digital deception.<br>
+        Upload, analyze, and detect with confidence.</p>
+        
+        <button class="cssbuttons-io" onclick="window.location.href='upload.html'">
+            <span>
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                     width="24" height="24" viewBox="0 0 24 24" 
+                     fill="none" stroke="currentColor" 
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
+                     style="margin-right: 10px;">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+                Start Detection
+            </span>
+        </button>
+        
+    </div>
+
+    <div class="features">
+        <h3>Advanced Detection Features</h3>
+        <div class="feature-card"><h4>Real-time Analysis</h4><p>Instant video processing with live feedback and progress tracking.</p></div>
+        <div class="feature-card"><h4>Confidence Scoring</h4><p>Detailed probability analysis with frame-by-frame deepfake detection metrics.</p></div>
+        <div class="feature-card"><h4>Detailed Reports</h4><p>Comprehensive analysis with downloadable results and visual indicators.</p></div>
+        <div class="feature-card"><h4>Easy & Fast Process</h4><p>Simple three-step detection—upload, analyze, and get results in minutes.</p></div>
+        <div class="feature-card"><h4>Advanced Security</h4><p>Enterprise-grade security with encrypted processing and secure data handling.</p></div>
+        <div class="feature-card"><h4>Auto-Updates</h4><p>Continuous model updates to detect the latest deepfake technologies.</p></div>
+    </div>
+
+    <div class="footer">
+        © 2025 DeepFake Detector. All rights reserved.
+    </div>
+    <script>
+    particlesJS('particles-js', {
+      "particles": {
+        "number": {
+          "value": 150,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#58a6ff"
+        },
+        "shape": {
+          "type": "circle"
+        },
+        "opacity": {
+          "value": 0.8,
+          "random": false
+        },
+        "size": {
+          "value": 3,
+          "random": true
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 100,
+          "color": "#58a6ff",
+          "opacity": 0.6,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 3,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        }
+      },
+      "retina_detect": true
+    });
+
+    </script>
+</body>
+</html>
