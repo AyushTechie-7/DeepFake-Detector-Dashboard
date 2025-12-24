@@ -26,7 +26,7 @@ A cutting-edge frontend interface for detecting AI-generated deepfake media, fea
 - Simulated API response handling
 - Error handling with user-friendly messages
 - Local storage for recent upload history
-- Custom animated SVG components
+- Custom animated SVG components.
 
 ## 🛠️ Technology Stack
 
