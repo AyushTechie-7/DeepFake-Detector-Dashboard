@@ -12,7 +12,7 @@ A cutting-edge frontend interface for detecting AI-generated deepfake media, fea
 - Real-time media preview (images/videos)
 - Animated progress indicators during "analysis"
 - Sci-fi themed UI with particle background effects
-- Responsive design for all device sizes
+- Responsive design for all device sizes.
 
 ### 🎮 User Experience
 - Intuitive three-step workflow: Upload → Analyze → Results
