@@ -19,7 +19,7 @@ A cutting-edge frontend interface for detecting AI-generated deepfake media, fea
 - Visual confidence scoring system
 - Mock forensic analysis visualization
 - Hover animations and interactive elements
-- Loading skeleton screens for smooth transitions
+- Loading skeleton screens for smooth transitions.
 
 ### ⚙️ Technical Features
 - Client-side file validation (type/size)
